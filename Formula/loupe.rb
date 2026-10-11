@@ -3,12 +3,12 @@ class Loupe < Formula
 
   desc "Terminal coding agent with coordinated sessions"
   homepage "https://github.com/bkavuri-hwlr1/loupe"
-  version "0.1.0a1"
+  version "0.1.0a2"
 
   bottle do
-    root_url "https://github.com/bkavuri-hwlr1/homebrew-tap/releases/download/v0.1.0a1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d6f96a2bb3db2fd42bfb8fe05ada6d46eeaffdb3f317c6cee8d9ce1a43aec4e"
-    sha256 cellar: :any_skip_relocation, sequoia:       "2b509da98c2e95195244eb67bfd303ec65a9fb8637747f77af1852d2fe1ce95e"
+    root_url "https://github.com/bkavuri-hwlr1/homebrew-tap/releases/download/v0.1.0a2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b809e15062369643030ed5fc044501f04b074dd8130419fd3864ee911ea49246"
+    sha256 cellar: :any_skip_relocation, sequoia:       "282b252d71201559cee2cd82666de0981dfbe4c32690a054bf61cb5ffb631219"
   end
 
   depends_on "git"
@@ -17,12 +17,12 @@ class Loupe < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/bkavuri-hwlr1/homebrew-tap/releases/download/v0.1.0a1/loupe-0.1.0a1-macos-arm64.tar.gz"
-      sha256 "553a1c4b9fca6acfa85dbda48efb0977ea701944e38682c8ee91bd3d2410de06"
+      url "https://github.com/bkavuri-hwlr1/homebrew-tap/releases/download/v0.1.0a2/loupe-0.1.0a2-macos-arm64.tar.gz"
+      sha256 "a25fc37710b97c7bd2a9714b1ce6abc9c03aa5e64446f61d220ea4e21712bf7c"
     end
     on_intel do
-      url "https://github.com/bkavuri-hwlr1/homebrew-tap/releases/download/v0.1.0a1/loupe-0.1.0a1-macos-x86_64.tar.gz"
-      sha256 "1b2789c1391ab9c071b44dec023c95dd25e76c74c9f7642bd4a0ca69389f975b"
+      url "https://github.com/bkavuri-hwlr1/homebrew-tap/releases/download/v0.1.0a2/loupe-0.1.0a2-macos-x86_64.tar.gz"
+      sha256 "1c7bda9aaaaf381198b66b779a0491120f93823ca318b44b648953e82523b246"
     end
   end
 
@@ -57,6 +57,9 @@ class Loupe < Formula
     # brew test puts Homebrew's internal shims first on PATH, and their git
     # runs only inside brew. Find the real git first, as a user's shell does.
     ENV.prepend_path "PATH", formula_opt_bin("git")
+    # brew test's macOS sandbox blocks the Unix socket the background service
+    # listens on. The tap's publish workflow runs the full smoke test outside it.
+    ENV["LOUPE_SMOKE_NO_SERVICE"] = "1"
     system libexec/"bin/python", pkgshare/"smoke_test.py", bin, version.to_s
   end
 end
