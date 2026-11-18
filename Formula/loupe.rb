@@ -3,12 +3,12 @@ class Loupe < Formula
 
   desc "Terminal coding agent with coordinated sessions"
   homepage "https://github.com/bkavuri-hwlr1/loupe"
-  version "0.1.0a3"
+  version "0.1.0a4"
 
   bottle do
-    root_url "https://github.com/bkavuri-hwlr1/homebrew-tap/releases/download/v0.1.0a3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8b7a67f422544067803a57601a37c7d565b3726bdbc9d3cdccc7c5b62f7e47e"
-    sha256 cellar: :any_skip_relocation, sequoia:       "c3339b28b27602311c17375e7a3688fa535a20f72b6cb5c0c87f6080a710b4ab"
+    root_url "https://github.com/bkavuri-hwlr1/homebrew-tap/releases/download/v0.1.0a4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9982c81900d7f4fc861b3abbbfd142b93824c44754f0d12167db57ec289dee2"
+    sha256 cellar: :any_skip_relocation, sequoia:       "920f280f2c6eff6c9c0183f83947146682a455a06d26494fdfb935b83b02339b"
   end
 
   depends_on "git"
@@ -17,12 +17,12 @@ class Loupe < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/bkavuri-hwlr1/homebrew-tap/releases/download/v0.1.0a3/loupe-0.1.0a3-macos-arm64.tar.gz"
-      sha256 "eb9cb28c3e59c258cf99b720f8a88cb637c0d9276ddac4b2faba34f1c1f13f0f"
+      url "https://github.com/bkavuri-hwlr1/homebrew-tap/releases/download/v0.1.0a4/loupe-0.1.0a4-macos-arm64.tar.gz"
+      sha256 "0fbeee4adfd0543dfde8a40077eecade6a97d067c661fa1c12d64cfe782a986b"
     end
     on_intel do
-      url "https://github.com/bkavuri-hwlr1/homebrew-tap/releases/download/v0.1.0a3/loupe-0.1.0a3-macos-x86_64.tar.gz"
-      sha256 "7e76f865b77f1541933c0b300ea182a42bbea97deef5cb6965162b5e8861938f"
+      url "https://github.com/bkavuri-hwlr1/homebrew-tap/releases/download/v0.1.0a4/loupe-0.1.0a4-macos-x86_64.tar.gz"
+      sha256 "0de7afd7a9c75bea0db537c6044a22c63a6d624ac5d2f55af4be2e3e29248cc8"
     end
   end
 
